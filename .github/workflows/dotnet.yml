@@ -1,5 +1,5 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+# This workflow will build a .NET project Unity Project.
+# For more information see: https://game.ci/docs/github/getting-started
 
 name: Actions 😎
 
@@ -32,6 +32,7 @@ jobs:
 
       # Test
       - name: Run tests
+        id: testRunner
         uses: game-ci/unity-test-runner@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -39,6 +40,14 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      # Upload Test Artifacts
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Test Results
+          path: ${{ steps.testRunner.outputs.artifactsPath }}
 
       # Build
       - name: Build project
@@ -49,6 +58,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: StandaloneWindows64
+          allowDirtyBuild: true
 
       # Output
       - uses: actions/upload-artifact@v4
