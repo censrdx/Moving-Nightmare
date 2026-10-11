@@ -3,35 +3,42 @@ using UnityEngine.SceneManagement;
 
 public class LevelComplete : MonoBehaviour
 {
-    // Next level == Level02.
-    public string nextLevel = "Level02";
-    public int levelToUnlock = 2;
+    [Header("Level Settings")]
+    [SerializeField] private string nextLevel = "Level02";
+    [SerializeField] private int levelToUnlock = 2;
 
-    // This is a public reference to the LevelComplete component called "LevelComplete.LoadNextLevel".
+    private void Start()
+    {
+        PlayerPrefs.SetInt("levelReached", levelToUnlock);
+    }
+    // Called when the player successfully beats the level
     public void LoadNextLevel()
     {
-        // Unlock the next level in the array.
-        PlayerPrefs.SetInt("levelReached", levelToUnlock);
+        // Check what level the player has already reached
+        int currentLevelReached = PlayerPrefs.GetInt("levelReached", 1);
+
+        // Only update progress if this level unlocks a higher milestone than before
+        if (levelToUnlock > currentLevelReached)
+        {
+            PlayerPrefs.SetInt("levelReached", levelToUnlock);
+            PlayerPrefs.Save(); // Safely save the progress to disk
+        }
+
         // Proceed to the next level
         SceneManager.LoadScene(nextLevel);
     }
 
-    // This is a public reference to the GameManager component called "GameManager.Restart".
+    // Public reference to the GameManager component.
     public void Restart()
     {
-        // Unlock the next level in the array.
-        PlayerPrefs.SetInt("levelReached", levelToUnlock);
-        // Find the Restart function from GameManager and use it.
-        //FindObjectOfType<GameManager>().Restart();
-        FindAnyObjectByType<GameManager>().Restart();
+        // Call the restart function from GameManager.
+        GameManager.Instance.Restart();
     }
 
-    // This is a public reference to the GameManager component called "GameManager.LoadMenu".
+    // This is a public reference to the GameManager component called.
     public void LoadMenu()
     {
-        // Unlock the next level in the queue.
-        PlayerPrefs.SetInt("levelReached", levelToUnlock);
-        // Find the LoadMenu function from GameManager and use it.
-        FindObjectOfType<GameManager>().LoadMenu();
+        // Call the LoadMenu function from GameManager.
+        GameManager.Instance.LoadMenu();
     }
 }

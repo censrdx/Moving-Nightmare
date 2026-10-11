@@ -3,29 +3,32 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    // Singleton instance so other scripts can access it easily via GameManager.Instance
+    public static GameManager Instance { get; set; }
+
     // Mark gameHasEnded to false.
-    public static bool GameIsOver;
+    public static bool GameIsOver { get; private set; }
 
     // Mark LevelIsCompleted to false.
-    public static bool LevelIsCompleted;
+    public static bool LevelIsCompleted { get; private set; }
 
     // Adjustable "restartDelay" in the inspector
-    public float restartDelay = 1f;
+    [SerializeField] private float restartDelay = 1f;
 
-    // This is a public reference to the GameObject Component called completeLevelUI.
-    public GameObject completeLevelUI;
+    // Public reference to the GameObject Component called completeLevelUI.
+    [SerializeField] private GameObject completeLevelUI;
 
-    // This is a public reference to the GameObject Component call gameOverUI.
-    public GameObject gameOverUI;
+    // Public reference to the GameObject Component call gameOverUI.
+    [SerializeField] private GameObject gameOverUI;
 
-    // This is a public reference to the GameManager component called "GameManager.CompleteLevel".
-    public void CompleteLevel()
+    // initialize variables or states before the application starts || https://docs.unity3d.com/6000.0/Documentation/ScriptReference/MonoBehaviour.Awake.html
+    private void Awake()
     {
-        if (LevelIsCompleted) return;
-        Cursor.visible = true;
-        LevelIsCompleted = true;
-        Debug.Log("Level Completed"); // Display Level Completed message to the console.
-        completeLevelUI.SetActive(true); // Set complete level ui to active
+        // Set up the Singleton pattern
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
 
     // Start is called before the first frame update
@@ -35,34 +38,45 @@ public class GameManager : MonoBehaviour
         GameIsOver = false;
         // Marked LevelIsCompleted as false so it does not start the game as completed.
         LevelIsCompleted = false;
-        //Make cursor invisible.
-        Cursor.visible = false;
     }
 
-    // This is a public reference to the GameManager component called "GameManager.EndGame".
+    // Level complete function
+    public void CompleteLevel()
+    {
+        if (LevelIsCompleted) return;
+        Cursor.visible = true; // Make the cursor visible.
+        Cursor.lockState = CursorLockMode.None; // Unlock cursor.
+        LevelIsCompleted = true; // Set game state to level completed.
+        Debug.Log("Level Completed"); // Display Level Completed message to the console.
+        completeLevelUI.SetActive(true); // Set complete level UI to active
+    }
+
+    // Game over function
+    // ReSharper disable Unity.PerformanceAnalysis
     public void EndGame()
     {
-        if (GameIsOver == false)
+        if (!GameIsOver)
         {
-            Cursor.visible = true; //Make cursor invisible.
-            GameIsOver = true;
+            Cursor.visible = true; //Make cursor visible.
+            Cursor.lockState = CursorLockMode.None; // Unlock cursor.
+            GameIsOver = true; // Switch to game over state.
             Debug.Log("GAME OVER"); // Display GAME OVER message to the console.
-            Invoke("Restart", restartDelay);    // Call restart delay.
-            gameOverUI.SetActive(true);  // Enable game over ui.
+            Invoke(nameof(Restart), restartDelay); // Call restart delay.
+            gameOverUI.SetActive(true); // Enable game over UI.
         }
     }
 
-    // This is a public refrence to the GameManager component called "GameManager.Restart".
+    // Restart last level played function.
     public void Restart()
     {
-        // Load the last level that the player was.
+        // Load last level played.
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    // This is a public refrence to the GameManager component called "GameManager.LoadMenu".
+    // Main menu function.
     public void LoadMenu()
     {
         // Get menu scene from build index and load it.
-        SceneManager.LoadScene("Menu");     
+        SceneManager.LoadScene("Menu");
     }
 }

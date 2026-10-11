@@ -3,13 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class Credits : MonoBehaviour
 {
-    public void Quit()  // Refrence to quit.
+    // Public reference for the Quit function.
+    private void Quit()
     {
         Debug.Log("QUIT");  // Debug in order to know if the script works.
-        Application.Quit(); // Quit the application
+        Application.Quit(); // Quit application
     }
 
-    // This is a public refrence to the PauseMenuUI component called "PauseMenu.LoadMenu".
+    // Public reference to the PauseMenuUI component.
     public void LoadMenu()
     {
         SceneManager.LoadScene("Menu");     // Get menu scene and load it from build index.

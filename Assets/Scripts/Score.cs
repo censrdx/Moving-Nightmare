@@ -3,14 +3,14 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    // Variable To Messure The Distance Of The Player
+    // Measure the distance of the player.
     public Transform player;
-    // Variable In Order To Display The Changed Text
+    // Display the changed text.
     public Text scoreText;
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        scoreText.text = player.position.z.ToString("0");   // Update The Score With The Player Distance
+        scoreText.text = player.position.z.ToString("0");   // Update the score with the player distance.
     }
 }

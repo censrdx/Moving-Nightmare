@@ -4,108 +4,116 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     // Set GameIsPaused to false by default.
-    public static bool GameIsPaused = false;
+    private static bool _gameIsPaused;
+    
+    // This is a reference to the PauseMenuUI component.
+    [SerializeField] private GameObject pauseMenuUI;
 
-    // This is a refrence to the PauseMenuUI component.
-    public GameObject pauseMenuUI;
-
-    // This is a refrence to the ScoreTextUI component.
-    public GameObject scoreTextUI;
+    // This is a reference to the ScoreTextUI component.
+    [SerializeField] private GameObject scoreTextUI;
 
     // Start is called before the first frame update.
-    void Start()
+    private void Start()
     {
-        // Start the game normaly and not paused.
+        // Start the game normally and not paused.
+        Time.timeScale = 1f;
+        _gameIsPaused = false;
+        Cursor.visible = false; // Make the cursor invisible.
+        Cursor.lockState = CursorLockMode.Locked; // Make cursor locked in position.
         pauseMenuUI.SetActive(false);
         scoreTextUI.SetActive(true);
-        Time.timeScale = 1f;
-        Cursor.visible = false; // Make cursor invisible.
     }
 
     // Update is called once per frame.
-    void Update()
+    private void Update()
     {
-        // Check whether or not the player wants to pause the game.
+        // Check whether the player wants to pause the game.
         // Get Escape key from keyboard
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameIsPaused)   // If GameIsPaused is equal to true.
+            if (_gameIsPaused) // If GameIsPaused is equal to true.
             {
-                Resume();   // Call Resume() function.
+                Resume(); // Call Resume() function.
             }
             else
             {
-                Pause();    //Call Pause() function.
+                Pause(); //Call Pause() function.
             }
         }
     }
 
-    void FixedUpdate()
+    // Update called at regular, fixed intervals as part of Unity's physics update loop.
+    public void FixedUpdate()
     {
-        // Disable controlls while LevelIsCompleted.
+        // Disable controls while LevelIsCompleted.
         if (GameManager.LevelIsCompleted)
         {
             this.enabled = false;
             return;
         }
 
-        // Disable controlls while GameIsOver.
-        if (GameManager.GameIsOver)
-        {
-            this.enabled = false;
-            return;
-        }
+        // Disable controls while GameIsOver.
+        if (!GameManager.GameIsOver) return;
+        this.enabled = false;
     }
 
-    // This is a refrence to the PauseMenuUI component called "PauseMenu.Resume".
+    // This is a reference to the PauseMenuUI component.
     public void Resume()
     {
+        // Return time back to normal.
+        Time.timeScale = 1f;
+        // Set game is paused to false.
+        _gameIsPaused = false;
         //Make cursor invisible.
         Cursor.visible = false;
+        // Make cursor locked in position.
+        Cursor.lockState = CursorLockMode.Locked;
         // Disable Pause Menu.
         pauseMenuUI.SetActive(false);
         // Enable score text ui.
         scoreTextUI.SetActive(true);
-        // Return time back to normal.
-        Time.timeScale = 1f;
-        // Set game is paused to false.
-        GameIsPaused = false;
     }
-
-    // This is a refrence to the PauseMenuUI component called "PauseMenu.Pause".
-    void Pause()
+    
+    // This is a reference to the PauseMenuUI component.
+    private void Pause()
     {
+        // Freeze time.
+        Time.timeScale = 0f;
+        // Set game is paused to true.
+        _gameIsPaused = true;
+        //Make cursor visible.
+        Cursor.visible = true;
+        // Unlock cursor.
+        Cursor.lockState = CursorLockMode.None;
         // Activate the Pause Menu.
         pauseMenuUI.SetActive(true);
         // Deactivate the score ui while pause menu is active.
         scoreTextUI.SetActive(false);
-        // Freeze time.
-        Time.timeScale = 0f;
-        // Set game is paused to true.
-        GameIsPaused = true;
-        //Make cursor visible.
-        Cursor.visible = true;
     }
 
-    // This is a public refrence to the PauseMenuUI component called "PauseMenu.LoadMenu".
+    // Public reference to the PauseMenuUI component.
     public void LoadMenu()
     {
         // Get menu scene from build index and load it.
         SceneManager.LoadScene("Menu");
         // Set game is paused to false.
-        GameIsPaused = false;
-        // //Make cursor visible.
+        _gameIsPaused = false;
+        // Make cursor visible.
         Cursor.visible = true;
+        // Unlock cursor.
+        Cursor.lockState = CursorLockMode.None;
     }
 
-    // This is a public refrence to the PauseMenuUI component called "PauseMenu.Restart".
+    // Public reference to the PauseMenuUI component called.
     public void Restart()
     {
         // Load the last level that the player was.
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         // Set game is paused to false.
-        GameIsPaused = false;
+        _gameIsPaused = false;
         //Make cursor invisible.
         Cursor.visible = false;
+        // Unlock cursor.
+        Cursor.lockState = CursorLockMode.None;
     }
 }

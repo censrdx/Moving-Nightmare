@@ -42,7 +42,7 @@ MonoBehaviour:
   m_Script: {fileID: 21010, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: AdaptivePerformanceGeneralSettings
   m_EditorClassIdentifier: UnityEditor.dll::UnityEditor.AdaptivePerformance.Editor.AdaptivePerformanceGeneralSettingsPerBuildTarget
-  Keys: 010000000d000000
+  Keys: 010000000d000000i
   Values:
   - {fileID: -8636873712181298236}
   - {fileID: -1417800753775106356}

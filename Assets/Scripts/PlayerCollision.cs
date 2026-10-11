@@ -2,18 +2,17 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    // A refrence to the PlayerMovement script.
+    // A reference to the PlayerMovement script.
     public PlayerMovement movement;
-
-    // This function runs when we hit another object.
-    // Get information about the collision and call it "CollitionInfo".
-    public void OnCollisionEnter(UnityEngine.Collision collisionInfo)
+    
+    // Get information about the collision and call it "CollisionInfo".
+    public void OnCollisionEnter(Collision collisionInfo)
     {
-        // Check if the object the player collided with has a tag called "obstacle".
-        if (collisionInfo.gameObject.tag == "Obstacle") 
+        // Check if the object and the player collided with a tag called "obstacle".
+        if (collisionInfo.gameObject.CompareTag("Obstacle"))
         {
             movement.enabled = false; // Disable player movement.
-            FindObjectOfType<GameManager>().EndGame(); // Find object from game manager in order to end the game.
+            GameManager.Instance.EndGame(); // Find object from game manager in order to end the game.
         }
     }
 }

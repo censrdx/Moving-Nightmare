@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class EndTrigger : MonoBehaviour
 {
-    // This is a refrence to the game manager script.
-    public GameManager gameManager;
-
     // This function runs when the player hits the end trigger.
-    void OnTriggerEnter()
+    private void OnTriggerEnter(Collider other)
     {
-        gameManager.CompleteLevel();    // On trigger use the gameManager.CompleteLevel(); script
+        // Only trigger the win state if the colliding object is tagged as "Player".
+        if (other.CompareTag("Player")) 
+        {
+            GameManager.Instance.CompleteLevel(); // On trigger the player completes the level.  
+        }
     }
 }

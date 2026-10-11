@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class MoveCamera : MonoBehaviour
 {
-    [SerializeField] Transform cameraPosition = null;
+    // Target to follow.
+    [SerializeField] private Transform cameraPosition;
 
-    void Update()
+    // Update is called once per frame.
+    private void Update()
     {
+        // Snap to camera position.
         transform.position = cameraPosition.position;
     }
 }
