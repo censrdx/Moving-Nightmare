@@ -3,7 +3,11 @@
 
 name: Actions 😎
 
-on: [push, pull_request]
+on:
+  push:
+    tags:
+      - 'v*' # Trigger workflow on version tags like v1.0.0
+  pull_request:
 
 jobs:
   build:
