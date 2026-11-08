@@ -70,6 +70,7 @@ jobs:
         with:
           targetPlatform: StandaloneWindows64
           buildName: Moving-Nightmare
+          allowDirtyBuild: true
 
       # Upload Build
       - name: Upload Windows Build
