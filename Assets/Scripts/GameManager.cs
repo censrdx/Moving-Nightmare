@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     // Singleton instance so other scripts can access it easily via GameManager.Instance
-    public static GameManager Instance { get; set; }
+    public static GameManager Instance { get; private set; }
 
     // Mark gameHasEnded to false.
     public static bool GameIsOver { get; private set; }

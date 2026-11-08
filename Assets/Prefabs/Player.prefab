@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6730789793767196946}
   - component: {fileID: 6730789793767196949}
   - component: {fileID: 6730789793767196948}
-  - component: {fileID: 8123733431559130439}
-  - component: {fileID: 6730789793767196950}
+  - component: {fileID: 7927912280449803949}
+  - component: {fileID: 8163419832803140328}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -142,7 +142,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &8123733431559130439
+--- !u!114 &7927912280449803949
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,13 +151,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6730789793767196953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efdf7c9b93a9f2c4fb78f6f4394f529e, type: 3}
+  m_Script: {fileID: 11500000, guid: c75284cca5afe47429c47ba7744d3e4e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
   rb: {fileID: 6730789793767196948}
   forwardForce: 3000
   sidewaysForce: 55
---- !u!114 &6730789793767196950
+--- !u!114 &8163419832803140328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,5 +168,5 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ea398d74c0c01d4a9358af3fe7c20e6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  movement: {fileID: 8123733431559130439}
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollision
+  movement: {fileID: 7927912280449803949}

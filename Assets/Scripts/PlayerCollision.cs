@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    // A reference to the PlayerMovement script.
-    public PlayerMovement movement;
+    // A reference to the Player script.
+    public Player movement;
     
     // Get information about the collision and call it "CollisionInfo".
     public void OnCollisionEnter(Collision collisionInfo)
