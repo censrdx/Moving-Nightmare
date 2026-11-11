@@ -1,14 +1,35 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DeletePlayerPrefs : MonoBehaviour
 {
-    // Update is called once per frame
-    public void Update()
+    // Reference to Delete Player Prefs.
+    [SerializeField] private InputAction deletePlayerPrefsAction;
+
+    // Called when a component of an active GameObject is first enabled.
+    private void OnEnable()
     {
-        //  Get M key from keyboard.
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            PlayerPrefs.DeleteAll();    //  Delete all saved data.
-        }
+        deletePlayerPrefsAction.performed += OnDeletePlayerPrefs;
+        deletePlayerPrefsAction.Enable();
+    }
+
+    // Called when a component itself is disabled or its parent GameObject is deactivated.
+    private void OnDisable()
+    {
+        deletePlayerPrefsAction.performed -= OnDeletePlayerPrefs;
+        deletePlayerPrefsAction.Disable();
+    }
+
+    // Called automatically when input action is triggered.
+    private void OnDeletePlayerPrefs(InputAction.CallbackContext ctx)
+    {
+        PlayerPrefs.DeleteAll();
+    }
+    
+    // Delete all saved data.
+    public void DeletePlayerPref()
+    {
+        PlayerPrefs.DeleteAll();
+        Debug.Log("Deleting PlayerPrefs");
     }
 }

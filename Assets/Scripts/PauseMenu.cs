@@ -21,8 +21,10 @@ public class PauseMenu : MonoBehaviour
         // Start the game normally and not paused.
         Time.timeScale = 1f;
         _gameIsPaused = false;
-        Cursor.visible = false; // Make the cursor invisible.
-        Cursor.lockState = CursorLockMode.Locked; // Make cursor locked in position.
+        // Make the cursor invisible.
+        Cursor.visible = false;
+        // Make cursor locked in position.
+        Cursor.lockState = CursorLockMode.Locked;
         pauseMenuUI.SetActive(false);
         scoreTextUI.SetActive(true);
     }
@@ -39,7 +41,6 @@ public class PauseMenu : MonoBehaviour
     {
         pauseAction.action.performed -= OnPausePerformed;
         pauseAction.action.Disable();
-        
     }
 
     // Called automatically when input action is triggered.

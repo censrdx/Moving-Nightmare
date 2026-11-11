@@ -20,13 +20,16 @@ public class CountdownTimer : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {   
-        _currentTime -= Time.deltaTime; // Subtract the time passed in seconds since the last frame, making the timer tick down smoothly.
-        countdownText.text = _currentTime.ToString("0"); // Convert _currentTime to string.
+        // Subtract the time passed in seconds since the last frame, making the timer tick down smoothly.
+        _currentTime -= Time.deltaTime;
+        // Convert _currentTime to string.
+        countdownText.text = _currentTime.ToString("0");
 
         // Checks if the timer hit 0.
         if (_currentTime <= 0)
         {
-            _currentTime = 0f; // Set timer to 0 so it doesn't display negative numbers.
+            // Set timer to 0 so it doesn't display negative numbers.
+            _currentTime = 0f;
         }
     }
 }
