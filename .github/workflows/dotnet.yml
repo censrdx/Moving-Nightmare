@@ -70,6 +70,7 @@ jobs:
         with:
           targetPlatform: StandaloneWindows64
           buildName: Moving-Nightmare
+          allowDirtyBuild: true
 
       # Upload Build
       - name: Upload Windows Build
@@ -110,14 +111,14 @@ jobs:
           cd build/StandaloneWindows64
           zip -r "$GITHUB_WORKSPACE/Moving-Nightmare.zip" .
 
-      # Create Release
+# Create Release
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref == 'refs/heads/main' && format('release-{0}', github.run_number) || (github.ref == 'refs/heads/testing' && format('testing-{0}', github.run_number) || github.ref_name) }}
-          name: ${{ github.ref == 'refs/heads/main' && format('Production Release #{0}', github.run_number) || (github.ref == 'refs/heads/testing' && format('Testing Build #{0}', github.run_number) || github.ref_name) }}
-          target_commitish: ${{ github.sha }}
-          prerelease: ${{ github.ref == 'refs/heads/testing' }}
+          tag_name: "${{ github.ref == 'refs/heads/main' && format('release-{0}', github.run_number) || (github.ref == 'refs/heads/testing' && format('testing-{0}', github.run_number) || github.ref_name) }}"
+          name: "${{ github.ref == 'refs/heads/main' && format('Production Release #{0}', github.run_number) || (github.ref == 'refs/heads/testing' && format('Testing Build #{0}', github.run_number) || github.ref_name) }}"
+          target_commitish: "${{ github.sha }}"
+          prerelease: "${{ github.ref == 'refs/heads/testing' }}"
           generate_release_notes: true
           fail_on_unmatched_files: true
           files: Moving-Nightmare.zip
