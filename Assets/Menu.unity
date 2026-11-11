@@ -642,7 +642,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -779,7 +779,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 00000000u
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1416,7 +1416,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 00000000u
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1553,7 +1553,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1920,18 +1920,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: '1. Changed the name of the game.
 
-    2. Changed the level 8 as it was
-    harder than levels 9 & 10.
+    2. Changed the level 8 as it was harder than levels 9 & 10.
 
     3. Improved collision with obstacles even more.
 
-    4.
-    Upgraded the unity engine.
+    4. Upgraded the unity engine.
 
     5. Changed the whole UI.
 
-    6. Upgraded the
-    render pipeline.'
+    6. Upgraded the render pipeline.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: b246c4190f4e46ec9352fe15a7b09ce0, type: 2}
@@ -1981,7 +1978,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 00000000u
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -2337,7 +2334,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -2474,7 +2471,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -2659,7 +2656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 620279359}
   - component: {fileID: 620279358}
-  - component: {fileID: 620279357}
+  - component: {fileID: 620279360}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2667,26 +2664,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &620279357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 620279356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &620279358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2717,6 +2694,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1277482803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &620279360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620279356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.UI.InputSystemUIInputModule
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
 --- !u!1 &630791696
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,7 +2832,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -3109,7 +3117,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -3246,7 +3254,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 00000000u
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -3383,7 +3391,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -3705,7 +3713,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -3842,7 +3850,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 00000000u
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -4375,60 +4383,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "V0.6\n\nBug Fixes\n1. Fixed a bug where the user was able to control the
-    cube while the level complete panel was enabled. \n\n2. Fixed a bug where the
-    user was able to press ESC to open the pause menu while the level complete and
-    the game over panel was enabled.\n\n3. Fixed a bug that caused the game to freeze
-    when the user pressed the ESC button to open the pause menu.\n\n4. Fixed a bug
-    that caused the player's rotation to break while the cube passed a certain amount
-    of speed.\n\nChanges\n1. Upgraded the Unity version, which will bring a lot of
-    crash fixes and optimizations.\n\n2. Improved collision detection.\n\n3. Reworked
-    the UI and optimized the code from the level complete screen.\n\n4. Reworked
-    the UI and optimized the code from the pause menu.\n\n5. Reduced the slipperiness
-    of the character.\n\n6. The game will take less space than before due to the
-    new compression method and the optimization in the code.\n\n7. Smoothed graphics
-    in general. No more glitchy stuff.\n\nNew\n1. Added a 3D text above the invisible
-    end trigger (finish line) to inform the player that they are about to finish
-    the level.\n\n2. Added a text to the main menu to remind the user that they can
-    reset their progress in case they need to.\n\n\nV0.5\n\nBug Fixes\n1. Fixed a
-    bug that caused the shadows to display in the wrong position.\n\n2. Fixed a bug
-    that caused the game to restart while the level complete UI shows up. That would
-    happen if the player fell off the platform.\n\nChanges\n1. Changed the sky again.\n\n2.
-    Changed the restart delay from 1 second to 20 seconds.\n\n3. Updated the how-to-play
-    page.\n\nNew\n1. Added a patch notes button in the main menu that opens a page
-    and shows the latest and older changes. \n\n2. Added a level selector menu.\n\n3.
-    Added a save file system that saves the player's progress localy.\n\n4. Added
-    a way to manually reset your progress.\n\n5. Added animation of the clouds.\n\n6.
-    Added a game over screen.\n\n7. Added a counter that will use the new restart
-    delay. You can see it when the game over screen pops up. If that counter goes
-    to 0 then the game will automatically restart.\n\n8. Added support for left and
-    right arrow keys from the keyboard.\n\n\nV0.4\n\nBug Fixes\n1. Fixed a bug where
-    the canvas which is responsible for displaying the UI, would sometimes be visible
-    to the player.\n\n2. Fixed a bug where if you restart the game by pressing the
-    restart button on the pause menu, the game would freeze and not start on its
-    own after the restart.\n\n3. Fixed a bug where if you pressed the menu button
-    on the pause menu and then pressed play in the main menu the game would freeze
-    and not start on its own.\n\nChanges\n1. Changed the fog density to a higher
-    value to make it harder for the player to see what is coming.\n\n2. Changed the
-    resolution to 1920x1080 so that the game is rendered better on the main menu
-    and credits page.\n\n3. Redesigned the main menu and credits page to fit the
-    new resolution.\n\n4. Made 1, 2, 3, and 4 levels harder.\n\nNew\n1. Added a discord
-    and Trello board icon on the main menu page that opens those links on the browser.\n\n2.
-    Added a how-to-play page that will show you the controls.\n\n3. Added an early
-    access splash image that will be visible while the game is loading.\n\n\nV0.3\n\nBug
-    Fixes\n1. Fixed a bug that allowed the player to go off the platform and immediately
-    return as nothing happened.\n\n2. Fixed a bug on the main menu that didn't allow
-    the player to quit the game.\n\nChanges\n1. Updated Graphics.\n   - Changed the
-    sky to something more realistic.\n   - Added reflections to more obstacles.\n\n2.
-    Made all levels harder apart from 2, 8, and 10.\n\n3. Moved the finish line further
-    away for all the levels and made them proportionate.\n\n4. Changed the game icon.\n\n5.
-    Changed collision detection to continuous speculative for some obstacles, which
-    means now they will not be affected by any force that the player applied.\n\n6.
-    Optimized the game in general. Now it should take less space from your disk and
-    run smoother than before.\n\nNew\n1. Added menu button to the credits screen,
-    which will load the main menu screen.\n\n2. Added a pause menu screen.\n\n3.
-    Added a text that displays the game version on the main menu.\n\n\nV0.2\n\nBug
-    Fixes\n1. Fixed a bug that did not allow the player to proceed to level 9."
+  m_text: "V0.6\n\nBug Fixes\n1. Fixed a bug where the user was able to control the cube while the level complete panel was enabled. \n\n2. Fixed a bug where the user was able to press ESC to open the pause menu while the level complete and the game over panel was enabled.\n\n3. Fixed a bug that caused the game to freeze when the user pressed the ESC button to open the pause menu.\n\n4. Fixed a bug that caused the player's rotation to break while the cube passed a certain amount of speed.\n\nChanges\n1. Upgraded the Unity version, which will bring a lot of crash fixes and optimizations.\n\n2. Improved collision detection.\n\n3. Reworked the UI and optimized the code from the level complete screen.\n\n4. Reworked the UI and optimized the code from the pause menu.\n\n5. Reduced the slipperiness of the character.\n\n6. The game will take less space than before due to the new compression method and the optimization in the code.\n\n7. Smoothed graphics in general. No more glitchy stuff.\n\nNew\n1. Added a 3D text above the invisible end trigger (finish line) to inform the player that they are about to finish the level.\n\n2. Added a text to the main menu to remind the user that they can reset their progress in case they need to.\n\n\nV0.5\n\nBug Fixes\n1. Fixed a bug that caused the shadows to display in the wrong position.\n\n2. Fixed a bug that caused the game to restart while the level complete UI shows up. That would happen if the player fell off the platform.\n\nChanges\n1. Changed the sky again.\n\n2. Changed the restart delay from 1 second to 20 seconds.\n\n3. Updated the how-to-play page.\n\nNew\n1. Added a patch notes button in the main menu that opens a page and shows the latest and older changes. \n\n2. Added a level selector menu.\n\n3. Added a save file system that saves the player's progress localy.\n\n4. Added a way to manually reset your progress.\n\n5. Added animation of the clouds.\n\n6. Added a game over screen.\n\n7. Added a counter that will use the new restart delay. You can see it when the game over screen pops up. If that counter goes to 0 then the game will automatically restart.\n\n8. Added support for left and right arrow keys from the keyboard.\n\n\nV0.4\n\nBug Fixes\n1. Fixed a bug where the canvas which is responsible for displaying the UI, would sometimes be visible to the player.\n\n2. Fixed a bug where if you restart the game by pressing the restart button on the pause menu, the game would freeze and not start on its own after the restart.\n\n3. Fixed a bug where if you pressed the menu button on the pause menu and then pressed play in the main menu the game would freeze and not start on its own.\n\nChanges\n1. Changed the fog density to a higher value to make it harder for the player to see what is coming.\n\n2. Changed the resolution to 1920x1080 so that the game is rendered better on the main menu and credits page.\n\n3. Redesigned the main menu and credits page to fit the new resolution.\n\n4. Made 1, 2, 3, and 4 levels harder.\n\nNew\n1. Added a discord and Trello board icon on the main menu page that opens those links on the browser.\n\n2. Added a how-to-play page that will show you the controls.\n\n3. Added an early access splash image that will be visible while the game is loading.\n\n\nV0.3\n\nBug Fixes\n1. Fixed a bug that allowed the player to go off the platform and immediately return as nothing happened.\n\n2. Fixed a bug on the main menu that didn't allow the player to quit the game.\n\nChanges\n1. Updated Graphics.\n   - Changed the sky to something more realistic.\n   - Added reflections to more obstacles.\n\n2. Made all levels harder apart from 2, 8, and 10.\n\n3. Moved the finish line further away for all the levels and made them proportionate.\n\n4. Changed the game icon.\n\n5. Changed collision detection to continuous speculative for some obstacles, which means now they will not be affected by any force that the player applied.\n\n6. Optimized the game in general. Now it should take less space from your disk and run smoother than before.\n\nNew\n1. Added menu button to the credits screen, which will load the main menu screen.\n\n2. Added a pause menu screen.\n\n3. Added a text that displays the game version on the main menu.\n\n\nV0.2\n\nBug Fixes\n1. Fixed a bug that did not allow the player to proceed to level 9."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: b246c4190f4e46ec9352fe15a7b09ce0, type: 2}
@@ -4478,7 +4433,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 00000000u
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -4607,7 +4562,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -4902,7 +4857,6 @@ GameObject:
   - component: {fileID: 1669257200}
   - component: {fileID: 1669257198}
   - component: {fileID: 1669257201}
-  - component: {fileID: 1669257202}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -4964,18 +4918,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9d38c30c08748c4d9badb36465d699d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1669257202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669257196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee168964234649e49bb75b3dcd521a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1673027072
@@ -5085,7 +5027,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 00000000u
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -5259,7 +5201,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -5474,19 +5416,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1. Implemented a keycode so that the user can press r to restart the level
-    while the game over panel is open.
+  m_text: '1. Implemented a keycode so that the user can press r to restart the level while the game over panel is open.
 
     2. Added support for discord rich presence.
 
-    3.
-    The cursor will now be hidden while you play the game, and it will be visible
-    again only when needed.
+    3. The cursor will now be hidden while you play the game, and it will be visible again only when needed.
 
     4. Added an options menu.
 
-    5. Added sounds to
-    the game.'
+    5. Added sounds to the game.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: b246c4190f4e46ec9352fe15a7b09ce0, type: 2}
@@ -5536,7 +5474,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 00000000u
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -5818,7 +5756,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -5955,7 +5893,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -6189,19 +6127,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: '1. Fixed a bug where the finish line was visible through obstacles.
 
-    2.
-    Fixed a bug where the discord server link in the main menu wasn''t functioning
-    correctly.
+    2. Fixed a bug where the discord server link in the main menu wasn''t functioning correctly.
 
-    3. Fixed an issue where the game was performing terribly on low-end
-    systems due to the new sky and some other things.
+    3. Fixed an issue where the game was performing terribly on low-end systems due to the new sky and some other things.
 
-    4. Fixed some grammar
-    mistakes.
+    4. Fixed some grammar mistakes.
 
-    5. Fixed a bug where if the right arrow key and d or the left
-    arrow key and a are pressed together they will add double force to the cube making
-    it move faster.'
+    5. Fixed a bug where if the right arrow key and d or the left arrow key and a are pressed together they will add double force to the cube making it move faster.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: b246c4190f4e46ec9352fe15a7b09ce0, type: 2}
@@ -6251,7 +6183,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 00000000u
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -6533,7 +6465,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -6678,7 +6610,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 00000000u
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -6952,7 +6884,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -7089,7 +7021,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -7226,7 +7158,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 00000000u
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -7363,7 +7295,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1

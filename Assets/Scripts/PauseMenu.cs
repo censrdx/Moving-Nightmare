@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -12,8 +13,10 @@ public class PauseMenu : MonoBehaviour
     // This is a reference to the ScoreTextUI component.
     [SerializeField] private GameObject scoreTextUI;
 
+    [SerializeField] private InputActionReference pauseAction;
+    
     // Start is called before the first frame update.
-    private void Start()
+    private void Awake()
     {
         // Start the game normally and not paused.
         Time.timeScale = 1f;
@@ -23,55 +26,33 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         scoreTextUI.SetActive(true);
     }
-
-    // Update is called once per frame.
-    private void Update()
+    
+    // Called when a component of an active GameObject is first enabled.
+    private void OnEnable()
     {
-        // Check whether the player wants to pause the game.
-        // Get Escape key from keyboard
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (_gameIsPaused) // If GameIsPaused is equal to true.
-            {
-                Resume(); // Call Resume() function.
-            }
-            else
-            {
-                Pause(); //Call Pause() function.
-            }
-        }
+        pauseAction.action.performed += OnPausePerformed;
+        pauseAction.action.Enable();
     }
 
-    // Update called at regular, fixed intervals as part of Unity's physics update loop.
-    public void FixedUpdate()
+    // Called when a component itself is disabled or its parent GameObject is deactivated.
+    private void OnDisable()
     {
-        // Disable controls while LevelIsCompleted.
-        if (GameManager.LevelIsCompleted)
-        {
-            this.enabled = false;
+        pauseAction.action.performed -= OnPausePerformed;
+        pauseAction.action.Disable();
+        
+    }
+
+    // Called automatically when input action is triggered.
+    private void OnPausePerformed(InputAction.CallbackContext context)
+    {
+        // Disable controls while level is completed and game is over.
+        if (GameManager.LevelIsCompleted || GameManager.GameIsOver)
             return;
-        }
-
-        // Disable controls while GameIsOver.
-        if (!GameManager.GameIsOver) return;
-        this.enabled = false;
-    }
-
-    // This is a reference to the PauseMenuUI component.
-    public void Resume()
-    {
-        // Return time back to normal.
-        Time.timeScale = 1f;
-        // Set game is paused to false.
-        _gameIsPaused = false;
-        //Make cursor invisible.
-        Cursor.visible = false;
-        // Make cursor locked in position.
-        Cursor.lockState = CursorLockMode.Locked;
-        // Disable Pause Menu.
-        pauseMenuUI.SetActive(false);
-        // Enable score text ui.
-        scoreTextUI.SetActive(true);
+        
+        if (_gameIsPaused)
+            Resume();
+        else
+            Pause();
     }
     
     // This is a reference to the PauseMenuUI component.
@@ -91,6 +72,23 @@ public class PauseMenu : MonoBehaviour
         scoreTextUI.SetActive(false);
     }
 
+    // This is a reference to the PauseMenuUI component.
+    public void Resume()
+    {
+        // Return time back to normal.
+        Time.timeScale = 1f;
+        // Set game is paused to false.
+        _gameIsPaused = false;
+        //Make cursor invisible.
+        Cursor.visible = false;
+        // Make cursor locked in position.
+        Cursor.lockState = CursorLockMode.Locked;
+        // Disable Pause Menu.
+        pauseMenuUI.SetActive(false);
+        // Enable score text ui.
+        scoreTextUI.SetActive(true);
+    }
+
     // Public reference to the PauseMenuUI component.
     public void LoadMenu()
     {
@@ -102,6 +100,8 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
         // Unlock cursor.
         Cursor.lockState = CursorLockMode.None;
+        // Start the game normally and not paused.
+        Time.timeScale = 1f;
     }
 
     // Public reference to the PauseMenuUI component called.

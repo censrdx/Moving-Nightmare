@@ -3,7 +3,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Reference the Generated InputMaster.
-    private static InputMaster _controls;
+    private static InputMaster _movement;
     
     // This is a reference to the rigidbody component called "rb".
     [SerializeField] private Rigidbody rb;
@@ -15,21 +15,21 @@ public class Player : MonoBehaviour
     // initialize variables or states before the application starts || https://docs.unity3d.com/6000.0/Documentation/ScriptReference/MonoBehaviour.Awake.html
     private void Awake()
     {
-        _controls = new InputMaster();
+        _movement = new InputMaster();
     }
     
     // Called when a component of an active GameObject is first enabled.
     private void OnEnable()
     {
         Debug.Log("PrintOnEnable: script was enabled");
-        _controls.Enable();
+        _movement.Enable();
     }
     
     // Called when a component itself is disabled or its parent GameObject is deactivated.
     private void OnDisable()
     {
         Debug.Log("PrintOnDisable: script was disabled");
-        _controls.Disable();
+        _movement.Disable();
     }
     
     // Update called at regular, fixed intervals as part of Unity's physics update loop.
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         // Add automatic forward force to the player.
         rb.AddForce(0, 0, forwardForce * Time.deltaTime);
         
-        var input = _controls.Player.Movement.ReadValue<float>();
+        var input = _movement.Player.Movement.ReadValue<float>();
         
         // Read from InputMaster and add sideways velocity.
         
