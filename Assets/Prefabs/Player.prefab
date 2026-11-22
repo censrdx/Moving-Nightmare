@@ -156,7 +156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   rb: {fileID: 6730789793767196948}
   forwardForce: 3000
-  sidewaysForce: 55
+  sidewaysAcceleration: 55
+  maxSidewaysSpeed: 20
+  sidewaysDrag: 4
 --- !u!114 &8163419832803140328
 MonoBehaviour:
   m_ObjectHideFlags: 0
